@@ -1483,6 +1483,23 @@
             })();
             //]]>
           </script>
+          <?php
+} else {
+ 
+  if (isset($_POST["to_email"])) {
+    $to_email = $_POST["to_email"];
+    $from_email = $_POST["from_email"];
+    $subject = $_POST["subject"];
+    $body = $_POST["message"];
+ 
+    if ( mail($to_email, $subject, $body, $headers)) {
+      echo("Email successfully sent to $to_email...");
+    } else {
+      echo("Email sending failed...");
+    }
+  }
+}
+?>
         </div>
       </footer>
     </div>
